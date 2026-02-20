@@ -26,5 +26,6 @@ public static void main(Row[] args) {
 		}
 		System.out.println("#"+tc+" "+max);
 	}
+	sc.close();
 }
 }
