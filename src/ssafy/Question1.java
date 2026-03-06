@@ -1,4 +1,5 @@
-package test;
+package ssafy;
+
 //2월 월말평가 알고리즘 기본 1번 문제
 
 import java.util.Scanner;
