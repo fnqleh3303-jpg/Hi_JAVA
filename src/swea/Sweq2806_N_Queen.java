@@ -7,6 +7,8 @@ public class Sweq2806_N_Queen {
 	static int ans;
 	static int[] cal;
 	
+	
+	
 public static void main(String[] args) {
 	Scanner sc = new Scanner(System.in);
 	
