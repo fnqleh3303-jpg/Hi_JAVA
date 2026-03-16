@@ -1,48 +1,59 @@
 package baekJoon;
-//재귀 일단은 보류
 
 import java.util.Scanner;
 
 public class baekJoon15649_N과M_1 {
-    static int N, M;
-    static int[] result;   // 선택한 숫자를 저장할 배열
-    static boolean[] visited; // 숫자 사용 여부를 체크할 배열
+	
+	static int n;
+	static int m;
+	static int[] ans;
+	static boolean[] visited;
+	
+	public static void main(String[] args) {
+		
+   Scanner sc = new Scanner(System.in);
+   
+   n=sc.nextInt();
+   m=sc.nextInt();
 
-    public static void main(String[] args) {
-        Scanner sc = new Scanner(System.in);
-        
-        N = sc.nextInt(); // 1부터 N까지의 자연수
-        M = sc.nextInt(); // 중복 없이 M개를 고른 수열
+   ans = new int[m];
+   visited = new boolean[n+1];
+   
+   array(0);
+  
+	}//메인 끝
+	
+	static void array(int idx) {
+			
+		//종료
+		if(idx ==m) {//*ans[m+1]하니까 인덱스는 m까지 존재하는거지. 
+			//*그리고 이 종료조건이 앞에 있으니까 이미 m-1까지 다 채워지고 이번턴에 m이 되면 그 전까지 출력
+			
+		for(int i=0;i<m;i++) {
+			System.out.print(ans[i]+" ");
+			
+		}
+		System.out.println();
+		return; //*for문으로 ans배열 안에 인덱스를 다 출력하고 return하려면 여기에 위치. 
+		}
+		
+		//재귀
+		for(int i=1;i<=n;i++) {
+			if(!visited[i]) {//*visited가 false인 것들에 한해서 변경해야함. 
+				
+			ans[idx] = i;
+			visited[i] = true;
+			
+			array(idx+1);
+			
+			visited[i] = false;
+			}
+		}
+	}//array함수 끝
+	
+}//클래스 끝
+//3시 13분
 
-        result = new int[M];    // M개를 담을 그릇 준비
-        visited = new boolean[N + 1]; // 1번 숫자부터 N번 숫자까지 사용 체크
+//은하언니 어디갔어 왜 공부 안 하고 도망감?
 
-        // 0번째 위치부터 숫자를 채우기 시작
-        dfs(0);
-    }
-
-    private static void dfs(int depth) {
-        // [Base Case] M개를 모두 골랐다면 출력하고 재귀 종료
-        if (depth == M) {
-            for (int val : result) {
-                System.out.print(val + " ");
-            }
-            System.out.println();
-            return; // 이전 호출 스택으로 돌아감
-        }
-
-        // [Recursive Step] 1부터 N까지 숫자를 하나씩 시도
-        for (int i = 1; i <= N; i++) {
-            // 아직 사용하지 않은 숫자인 경우에만 진행
-            if (!visited[i]) {
-                visited[i] = true;      // 1. 숫자 사용 표시 (방문 체크)
-                result[depth] = i;      // 2. 현재 자리에 숫자 저장
-                
-                dfs(depth + 1);         // 3. 다음 자리(depth + 1)를 채우러 떠남
-                
-                // 4. ★백트래킹의 핵심: 돌아온 후에는 다시 사용 가능한 상태로 복구
-                visited[i] = false;     
-            }
-        }
-    }
-}
+//boolean 배열은 중복되지 않게 1~n숫자를 사용하고 싶으니까 array안의 칸들이 사용 유무에 따라 사용.
