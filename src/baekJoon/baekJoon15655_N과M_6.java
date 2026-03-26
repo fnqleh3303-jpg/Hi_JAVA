@@ -51,7 +51,7 @@ public class baekJoon15655_N과M_6 {
 			
 			ans[idx] = given[i];
 //			visited[i] = true;
-			ham(idx + 1, i+1);//여기 i+1을 하는 이유는 for문에 돌때 나보다 큰 수를 다음 idx에 넣기 위해서다. 
+			ham(idx + 1, start+1);//여기 i+1을 하는 이유는 for문에 돌때 나보다 큰 수를 다음 idx에 넣기 위해서다. 
 //			visited[i] = false;
 		}
 
@@ -60,3 +60,5 @@ public class baekJoon15655_N과M_6 {
 }
 //4시 31분//4시 56분
 //ham(idx+1, start+1)을 한다면?
+//4 2    9 8 7 1 을 예로 들었을때, 첫번재 stack이 한칸 쌓이고, 첫칸이 쌓일 때, 처음 들어가는 값이 두번째 순서인 7부터 들어가게 된다. 
+//그래서 start+1을하게 되면 오름차순이 아니고 두번째 칸은 7부터 들어가는 거다!
