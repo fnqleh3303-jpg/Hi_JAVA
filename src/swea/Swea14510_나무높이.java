@@ -35,7 +35,7 @@ public class Swea14510_나무높이 {
             while (two > one) {
                 two--;
                 one += 2;
-            }//임시로 1이랑 2를 바꾼거네
+            }
 
             int days;
 
