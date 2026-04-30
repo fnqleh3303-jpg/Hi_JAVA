@@ -41,7 +41,7 @@ public class Swea1226_미로1 {
 						finC = j;
 					}
 				}
-			} // 할당 끝
+			} // 할당 끝ㄴ
 
 //			System.out.println(Arrays.deepToString(map));
 
